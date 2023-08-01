@@ -9,7 +9,7 @@ ADD . .
 # RUN npm run build
 
 COPY prisma ./prisma/
-COPY dist ./dist/
+COPY ./dist ./dist/
 
 RUN chmod 777 ./prisma
 RUN chmod 777 ./node_modules/prisma
