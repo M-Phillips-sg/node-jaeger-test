@@ -3,10 +3,10 @@ ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY tsconfig.* ./
-RUN npm ci --quiet --only=production
-RUN npm install typescript -g
-COPY . .
-RUN npm run build
+RUN npm ci --quiet 
+# RUN npm install typescript -g
+ADD . .
+# RUN npm run build
 
 COPY prisma ./prisma/
 
