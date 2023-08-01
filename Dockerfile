@@ -9,6 +9,7 @@ ADD . .
 # RUN npm run build
 
 COPY prisma ./prisma/
+# COPY dist ./dist/
 
 RUN chmod 777 ./prisma
 RUN chmod 777 ./node_modules/prisma
@@ -17,5 +18,5 @@ RUN chmod 777 ./node_modules/.prisma/client/index.js
 # RUN npx prisma generate
 
 EXPOSE 4010
-RUN ./dist/server.js
+RUN node ./dist/server.js
 
