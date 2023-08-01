@@ -5,7 +5,7 @@ import { PrismaClient } from '@prisma/client';
 import express, { Request, Response } from 'express';
 
 const app = express();
-const port = 4010;
+const port = 4012;
 
 const prisma = new PrismaClient({});
 
