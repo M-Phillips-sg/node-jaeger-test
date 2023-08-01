@@ -18,5 +18,5 @@ RUN chmod 777 ./node_modules/.prisma/client/index.js
 # RUN npx prisma generate
 
 EXPOSE 4010
-RUN node ./dist/server.js
+CMD [ "node" "./dist/server.js"]
 
