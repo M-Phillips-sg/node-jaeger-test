@@ -15,6 +15,9 @@ import { HttpInstrumentation } from '@opentelemetry/instrumentation-http';
 
 export function initializeTracing(serviceName: string): Tracer {
   const traceRatio = process.env.NODE_ENV === 'production' ? 0.1 : 1.0;
+  const endpoint =
+    process.env.JAEGER_END_POINT || 'http://localhost:14268/api/traces';
+  console.log('%c⧭', 'color: #ff0000', endpoint);
 
   const provider = new NodeTracerProvider({
     sampler: new TraceIdRatioBasedSampler(traceRatio),
@@ -24,7 +27,7 @@ export function initializeTracing(serviceName: string): Tracer {
   });
 
   const jaegerExporter = new JaegerExporter({
-    endpoint: 'http://localhost:14268/api/traces',
+    endpoint,
   });
 
   if (process.env.NODE_ENV === 'production') {
