@@ -12,6 +12,7 @@ const prisma = new PrismaClient({});
 app.get('/users/random', async (_req: Request, res: Response) => {
   logger.info('/users/random - called');
   await tracer.startActiveSpan('Get /users/random', async (requestSpan) => {
+    console.log(requestSpan.isRecording());
     try {
       let users = await prisma.user.findMany({
         include: {
