@@ -1,6 +1,6 @@
 import { initializeTracing } from './tracing';
 const tracer = initializeTracing('express-server');
-
+import { logger } from 'logger';
 import { PrismaClient } from '@prisma/client';
 import express, { Request, Response } from 'express';
 
@@ -10,6 +10,7 @@ const port = 4012;
 const prisma = new PrismaClient({});
 
 app.get('/users/random', async (_req: Request, res: Response) => {
+  logger.info('/users/random - called');
   await tracer.startActiveSpan('Get /users/random', async (requestSpan) => {
     try {
       let users = await prisma.user.findMany({

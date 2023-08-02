@@ -21,7 +21,7 @@ RUN yarn run build
 
 # RUN npx prisma generate
 
-EXPOSE 4010
+EXPOSE 4012
 RUN npx prisma generate
 CMD [ "node", "./dist/server.js"]
 
