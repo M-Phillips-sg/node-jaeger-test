@@ -1,6 +1,8 @@
 import pino from 'pino';
 
-export const logger = pino({
+const logger = pino({
   name: 'jaeger-demo',
   level: 'debug',
 });
+
+export { logger };
