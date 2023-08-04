@@ -6,12 +6,12 @@ RUN apt-get install -y openssl
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY tsconfig.* ./
-RUN yarn install
-RUN yarn global add typescript
+RUN npm install
+RUN npm global add typescript
 ADD . .
 RUN ls -a
 
-RUN yarn run build
+RUN npm run build
 
 
 

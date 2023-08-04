@@ -29,8 +29,7 @@ export function initializeTracing(
   const traceRatio = process.env.NODE_ENV === 'production' ? 0.1 : 1.0;
 
   const endpoint =
-    process.env.JAEGER_END_POINT ??
-    'http://jaeger-all-in-one-inmemory-collector.app-tracing.svc:14268/api/traces';
+    process.env.JAEGER_END_POINT ?? 'http://localhost:14268/api/traces';
 
   const jaegerExporter = new JaegerExporter({ endpoint });
   const provider = new NodeTracerProvider({
