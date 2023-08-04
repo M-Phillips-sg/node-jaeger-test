@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY tsconfig.* ./
 RUN npm install
-RUN npm global add typescript
+RUN npm install typescript -g
 ADD . .
 RUN ls -a
 
