@@ -7,11 +7,12 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY tsconfig.* ./
 RUN npm install
-RUN npm install typescript -g
+# RUN npm install typescript -g
 ADD . .
+COPY ./dist ./dist
 RUN ls -a
 
-RUN npm run build
+# RUN npm run build
 
 
 
